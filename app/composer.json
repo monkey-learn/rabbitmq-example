@@ -1,0 +1,12 @@
+{
+    "name": "zer0/app",
+    "authors": [
+        {
+            "name": "zeroonebeatz",
+            "email": "zeroonebeatz@gmail.com"
+        }
+    ],
+    "require": {
+        "php-amqplib/php-amqplib": ">=2.9.0"
+    }
+}

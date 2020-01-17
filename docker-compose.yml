@@ -1,0 +1,30 @@
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 10.1.1.0/24
+      driver: default
+services:
+  php-amqp:
+    container_name: php-amqp
+    image: disc/php-amqp
+    links:
+    - rabbitmq
+    user: ${PUID}:${PGID}
+    networks:
+      app_net:
+        ipv4_address: 10.1.1.100
+    restart: always
+    volumes:
+    - ./app:/var/www/html
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management
+    networks:
+      app_net:
+        ipv4_address: 10.1.1.101
+    ports:
+    - 8081:15672
+    restart: always
+version: '3'
