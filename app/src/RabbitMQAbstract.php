@@ -19,6 +19,6 @@ abstract class RabbitMQAbstract
     abstract protected function createChannel($connection);
     abstract protected function createExchange($channel, $exchange);
 
-    abstract protected function createProducer(): ProducerAbstract;
-    abstract protected function createConsumer(): ConsumerAbstract;
+    abstract public function createProducer(): ProducerAbstract;
+    abstract public function createConsumer(): ConsumerAbstract;
 }
